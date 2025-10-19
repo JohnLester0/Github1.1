@@ -124,26 +124,35 @@ section {
   width: 95%;
   max-width: 1200px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
   display: flex;
-  flex-direction: column;
+  flex-direction: column;       /* Stack items vertically by default (mobile) */
   align-items: center;
+  gap: 1rem;                    /* Space between children */
 }
 
 .info-box h2 {
   text-align: center;
   color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
+
 .info-box ul {
   list-style: none;
   padding: 0;
+  width: 100%;
 }
+
 .info-box li {
   padding: 10px 0;
   font-size: 1rem;
   color: #555;
+
   display: flex;
   align-items: center;
 }
+
 .info-box li::before {
   content: '';
   display: inline-block;
@@ -152,15 +161,47 @@ section {
   background-color: #313e4d;
   border-radius: 50%;
   margin-right: 10px;
+  flex-shrink: 0;               /* Prevent the bullet circle from shrinking */
 }
 
-#contact-info {
-  background-color: #e6f7ff;
-  padding: 2rem;
-  border-radius: 8px;
-  width: 95%;
-  margin: 0 auto 2rem;
+/* Larger screen adaptations */
+@media (min-width: 768px) {
+  .info-box {
+    flex-direction: row;        /* Side-by-side layout on tablets/desktop */
+    align-items: flex-start;
+  }
+
+  .info-box h2 {
+    font-size: 1.75rem;
+    flex: 1;                    /* Let heading take up some space if needed */
+    text-align: left;
+  }
+
+  .info-box ul {
+    width: 70%;                 /* Let list take more width */
+  }
+
+  .info-box li {
+    font-size: 1.1rem;
+  }
 }
+
+@media (min-width: 1024px) {
+  .info-box {
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .info-box h2 {
+    font-size: 2rem;
+  }
+
+  .info-box li {
+    font-size: 1.2rem;
+    padding: 12px 0;
+  }
+}
+
 
 footer {
   background-color: #333;
@@ -231,3 +272,4 @@ h1 {
     padding: 1rem 3rem;
   }
 }
+
